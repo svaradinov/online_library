@@ -8,4 +8,3 @@ class Book(models.Model):
     description = models.TextField()
     image = models.URLField()
     type = models.CharField(max_length=30)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)

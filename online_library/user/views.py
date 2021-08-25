@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from online_library.user.forms import UserForm
-from online_library.user.models import User
+
 
 
 def create_user(req):
@@ -12,14 +12,14 @@ def create_user(req):
 
             return redirect('home')
 
-        else:
-            form = UserForm()
+    else:
+        form = UserForm()
 
-        context = {
+    context = {
             'form': form
         }
 
-        return render(req, 'home-no-profile.html', context)
+    return render(req, 'home-no-profile.html', context)
 
 
 def user_details(req):
