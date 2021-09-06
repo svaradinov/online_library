@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
+from online_library.book.forms import BookForm
 from online_library.book.models import Book
+from online_library.user.forms import UserForm
 from online_library.user.models import User
 
 
@@ -21,7 +23,21 @@ def home(req):
 
 
 def add_book(req):
-    pass
+    user = User.objects.get()
+    if req.method == 'POST':
+        form = BookForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = BookForm()
+
+    context = {
+        'form': form,
+        'user': user,
+    }
+
+    return render(req, 'add-book.html', context)
 
 def edit_book(req, pk):
     pass
@@ -29,5 +45,5 @@ def edit_book(req, pk):
 def book_details(req, pk):
     pass
 
-def book_delete(req, pk):
+def delete_book(req, pk):
     pass

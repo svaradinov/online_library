@@ -16,7 +16,7 @@ def create_user(req):
         form = UserForm()
 
     context = {
-            'form': form
+        'form': form
         }
 
     return render(req, 'home-no-profile.html', context)
