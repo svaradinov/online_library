@@ -18,8 +18,8 @@
                     <a href="{% url 'home' %}">Dashboard</a>
                     <div id="user">
                         <span>Welcome, {{ user.first_name }}</span>
-                        <a class="button" href="#">Add Book</a>
-                        <a class="button" href="#">Profile</a>
+                        <a class="button" href="{% url 'add book' %}">Add Book</a>
+                        <a class="button" href="{% url 'user details' %}">Profile</a>
                     </div>
                 </section>
             </nav>
@@ -27,12 +27,12 @@
 
         <!-- Edit Profile Page -->
         <section id="edit-profile-page" class="edit">
-            <form id="edit-form" action="{% url 'edit user' %}" method="POST">
+            <form id="edit-form" action="{% url 'delete book' book.id %}" method="POST">
                 <fieldset>
-                    <legend>Edit Profile</legend>
+                    <legend>Delete book</legend>
                     {% csrf_token %}
                     {{ form }}
-                    <input class="button submit" type="submit" value="Edit">
+                    <input class="button submit" type="submit" value="Delete">
                 </fieldset>
             </form>
         </section>

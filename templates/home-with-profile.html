@@ -19,7 +19,7 @@
                     <div id="user">
                         <span>Welcome, {{ user.first_name }}</span>
                         <a class="button" href="{% url 'add book' %}">Add Book</a>
-                        <a class="button" href="#">Profile</a>
+                        <a class="button" href="{% url 'user details' %}">Profile</a>
                     </div>
                 </section>
             </nav>
@@ -47,9 +47,6 @@
             </ul>
         </section>
 
-        <footer id="site-footer">
-            <p>Python Web Basics Retake Exam @SoftUni</p>
-        </footer>
     </div>
 </body>
 

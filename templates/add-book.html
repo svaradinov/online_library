@@ -18,8 +18,8 @@
                     <a href="{% url 'home' %}">Dashboard</a>
                     <div id="user">
                         <span>Welcome, {{ user.first_name }}</span>
-                        <a class="button" href="#">Add Book</a>
-                        <a class="button" href="#">Profile</a>
+                        <a class="button" href="{% url 'add book' %}">Add Book</a>
+                        <a class="button" href="{% url 'user details' %}">Profile</a>
                     </div>
                 </section>
             </nav>
@@ -27,10 +27,9 @@
 
         <!-- Add Book Page -->
         <section id="create-page" class="create">
-            <form id="create-form" action="" method="POST">
+            <form id="create-form" action="{% url 'add book' %}" method="POST">
                 <fieldset>
                     <legend>Add New Book</legend>
-                    <label for="title">Title</label>
                     {% csrf_token %}
                     {{ form }}
                     <input class="button submit" type="submit" value="Add Book">
@@ -38,9 +37,6 @@
             </form>
         </section>
 
-        <footer id="site-footer">
-            <p>Python Web Basics Retake Exam @SoftUni</p>
-        </footer>
     </div>
 </body>
 

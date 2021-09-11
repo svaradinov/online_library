@@ -15,11 +15,11 @@
             <!-- Navigation -->
             <nav class="navbar">
                 <section class="navbar-dashboard">
-                    <a href="#">Dashboard</a>
+                    <a href="{% url 'home' %}">Dashboard</a>
                     <div id="user">
-                        <span>Welcome, Peter</span>
-                        <a class="button" href="#">Add Book</a>
-                        <a class="button" href="#">Profile</a>
+                        <span>Welcome, {{ user.first_name }}</span>
+                        <a class="button" href="{% url 'add book' %}">Add Book</a>
+                        <a class="button" href="{% url 'user details' %}">Profile</a>
                     </div>
                 </section>
             </nav>
@@ -28,18 +28,15 @@
         <!-- Profile Page -->
         <section id="profile-page" class="details">
             <div class="profile-information">
-                <h3>Peter Tomov</h3>
-                <p class="img"><img src="https://thumbs.dreamstime.com/b/profile-picture-vector-perfect-social-media-other-web-use-125320533.jpg" alt=""></p>
+                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                <p class="img"><img src="{{ user.image_url }}" alt=""></p>
                 <div class="actions">
-                    <a class="button" href="#">Edit</a>
-                    <a class="button" href="#">Delete</a>
+                    <a class="button" href="{% url 'edit user' %}">Edit</a>
+                    <a class="button" href="{% url 'delete user' %}">Delete</a>
                 </div>
             </div>
         </section>
 
-        <footer id="site-footer">
-            <p>Python Web Basics Retake Exam @SoftUni</p>
-        </footer>
     </div>
 </body>
 
